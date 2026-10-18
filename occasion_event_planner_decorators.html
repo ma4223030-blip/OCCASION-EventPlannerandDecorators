@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCCASION – Event Planner & Decorators | Luxury Event Design in Hyderabad</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#153C32',
+                        forestDark: '#0D2620',
+                        charcoal: '#171A18',
+                        ivory: '#FAF6EE',
+                        gold: '#C8A66A',
+                        goldLight: '#DFCDA2',
+                        blush: '#E9D0C7',
+                        blushLight: '#F7EFEA'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF6EE;
+            color: #171A18;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #C8A66A 0%, #DFCDA2 50%, #A88548 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border-color: #C8A66A;
+        }
+        .gold-bg {
+            background-color: #C8A66A;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #171A18;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C8A66A;
+            border-radius: 4px;
+        }
+        .fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-ivory text-charcoal antialiased selection:bg-gold selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-forest text-ivory text-xs md:text-sm py-2 px-4 text-center font-medium tracking-wider flex justify-center items-center gap-4 border-b border-gold/20">
+        <span><i class="fa-solid fa-location-dot text-gold mr-1.5"></i> Yapral, Secunderabad, Hyderabad</span>
+        <span class="hidden md:inline">•</span>
+        <span class="hidden md:inline"><i class="fa-solid fa-star text-gold mr-1"></i> 5.0 Rating (54 Verified Reviews)</span>
+        <span class="hidden md:inline">•</span>
+        <a href="tel:919063000750" class="hover:text-gold transition-colors"><i class="fa-solid fa-phone text-gold mr-1.5"></i> +91 90630 00750</a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header id="site-header" class="sticky top-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" onclick="router.navigate('home')" class="group flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-forest flex items-center justify-center text-gold border border-gold/40 shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-crown text-sm"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-2xl font-bold tracking-wide text-forest group-hover:text-gold transition-colors">OCCASION</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-charcoal/70 font-semibold -mt-1">Event Planner & Decorators</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden xl:flex items-center gap-7 text-sm font-medium tracking-wide">
+                <button onclick="router.navigate('home')" class="nav-link text-forest hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold" data-page="home">Home</button>
+                <button onclick="router.navigate('about')" class="nav-link text-forest hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold" data-page="about">About Us</button>
+                <button onclick="router.navigate('services')" class="nav-link text-forest hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold" data-page="services">All Services</button>
+                
+                <!-- Services Dropdown / Quick Links -->
+                <div class="relative group py-2">
+                    <button class="flex items-center gap-1 text-forest hover:text-gold transition-colors">
+                        Decor Categories <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute top-full left-0 w-64 bg-ivory border border-gold/30 shadow-xl rounded-lg p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <button onclick="router.navigate('birthday')" class="w-full text-left px-3 py-2.5 rounded-md hover:bg-forest/10 text-forest text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-cake-candles text-gold"></i> Birthday Decoration
+                        </button>
+                        <button onclick="router.navigate('naming')" class="w-full text-left px-3 py-2.5 rounded-md hover:bg-forest/10 text-forest text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-child text-gold"></i> Naming Ceremony
+                        </button>
+                        <button onclick="router.navigate('wedding')" class="w-full text-left px-3 py-2.5 rounded-md hover:bg-forest/10 text-forest text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-ring text-gold"></i> Wedding & Engagement
+                        </button>
+                        <button onclick="router.navigate('anniversary')" class="w-full text-left px-3 py-2.5 rounded-md hover:bg-forest/10 text-forest text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-champagne-glasses text-gold"></i> Anniversary Decoration
+                        </button>
+                    </div>
+                </div>
+
+                <button onclick="router.navigate('portfolio')" class="nav-link text-forest hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold" data-page="portfolio">Portfolio</button>
+                <button onclick="router.navigate('reviews')" class="nav-link text-forest hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold" data-page="reviews">Reviews & FAQ</button>
+                <button onclick="router.navigate('contact')" class="nav-link text-forest hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold" data-page="contact">Contact</button>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://wa.me/919063000750?text=Hello%20OCCASION%20Team,%20I%20would%20like%20to%20enquire%20about%20event%20decoration%20services." target="_blank" class="bg-forest text-ivory hover:bg-forestDark px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all shadow-md hover:shadow-lg flex items-center gap-2 border border-gold/30">
+                    <i class="fa-brands fa-whatsapp text-gold text-base"></i> WhatsApp Us
+                </a>
+                <button onclick="router.navigate('contact')" class="bg-gold text-charcoal hover:bg-goldLight px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all shadow-md hover:shadow-lg">
+                    Book Event
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="xl:hidden text-forest text-2xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-ivory border-b border-gold/30 px-6 py-6 space-y-4 shadow-2xl transition-all">
+            <button onclick="router.navigate('home'); toggleMobileMenu();" class="block w-full text-left font-serif text-lg text-forest font-semibold py-2 border-b border-gold/10">1. Home</button>
+            <button onclick="router.navigate('about'); toggleMobileMenu();" class="block w-full text-left font-serif text-lg text-forest font-semibold py-2 border-b border-gold/10">2. About Us</button>
+            <button onclick="router.navigate('services'); toggleMobileMenu();" class="block w-full text-left font-serif text-lg text-forest font-semibold py-2 border-b border-gold/10">3. All Services</button>
+            <button onclick="router.navigate('birthday'); toggleMobileMenu();" class="block w-full text-left text-sm text-forest/80 font-medium py-1.5 pl-4 flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-gold"></i> Birthday Decoration</button>
+            <button onclick="router.navigate('naming'); toggleMobileMenu();" class="block w-full text-left text-sm text-forest/80 font-medium py-1.5 pl-4 flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-gold"></i> Naming Ceremony</button>
+            <button onclick="router.navigate('wedding'); toggleMobileMenu();" class="block w-full text-left text-sm text-forest/80 font-medium py-1.5 pl-4 flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-gold"></i> Wedding & Engagement</button>
+            <button onclick="router.navigate('anniversary'); toggleMobileMenu();" class="block w-full text-left text-sm text-forest/80 font-medium py-1.5 pl-4 flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-gold"></i> Anniversary Decoration</button>
+            <button onclick="router.navigate('portfolio'); toggleMobileMenu();" class="block w-full text-left font-serif text-lg text-forest font-semibold py-2 border-b border-gold/10">8. Portfolio & Gallery</button>
+            <button onclick="router.navigate('reviews'); toggleMobileMenu();" class="block w-full text-left font-serif text-lg text-forest font-semibold py-2 border-b border-gold/10">9. Reviews & FAQ</button>
+            <button onclick="router.navigate('contact'); toggleMobileMenu();" class="block w-full text-left font-serif text-lg text-forest font-semibold py-2 border-b border-gold/10">10. Contact & Enquiry</button>
+            <div class="pt-4 flex flex-col gap-3">
+                <a href="https://wa.me/919063000750" target="_blank" class="w-full bg-forest text-ivory text-center py-3 rounded-xl font-semibold text-xs uppercase tracking-widest flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-gold text-lg"></i> Chat on WhatsApp
+                </a>
+                <button onclick="router.navigate('contact'); toggleMobileMenu();" class="w-full bg-gold text-charcoal text-center py-3 rounded-xl font-semibold text-xs uppercase tracking-widest">
+                    Enquire Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container for Dynamic Views -->
+    <main id="app-view">
+        <!-- Rendered dynamically via JavaScript router -->
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-charcoal/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-ivory text-3xl hover:text-gold transition-colors focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full bg-ivory rounded-2xl overflow-hidden shadow-2xl border border-gold/40 flex flex-col md:flex-row">
+            <div class="md:w-3/5 bg-charcoal relative flex items-center justify-center min-h-[300px] md:min-h-[450px]">
+                <img id="lightbox-img" src="" alt="Concept Preview" class="w-full h-full object-cover">
+                <span class="absolute bottom-4 left-4 bg-charcoal/80 text-gold text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold border border-gold/30">Design Inspiration / Concept Preview</span>
+            </div>
+            <div class="md:w-2/5 p-8 flex flex-col justify-between">
+                <div>
+                    <span id="lightbox-category" class="text-xs font-semibold uppercase tracking-widest text-gold block mb-2">Category</span>
+                    <h3 id="lightbox-title" class="font-serif text-2xl font-bold text-forest mb-4">Project Title</h3>
+                    <p id="lightbox-desc" class="text-charcoal/80 text-sm leading-relaxed mb-6">Detailed description of the luxury decoration setup, floral arrangements, thematic styling, and lighting design.</p>
+                </div>
+                <div class="space-y-3 pt-6 border-t border-gold/20">
+                    <a id="lightbox-whatsapp" href="#" target="_blank" class="w-full bg-forest text-ivory text-center py-3 rounded-xl font-semibold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-forestDark transition-all">
+                        <i class="fa-brands fa-whatsapp text-gold"></i> Enquire About This Style
+                    </a>
+                    <button onclick="closeLightbox()" class="w-full bg-ivory border border-gold/40 text-forest text-center py-2.5 rounded-xl font-semibold text-xs uppercase tracking-widest hover:bg-forest/5 transition-all">
+                        Close Preview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Code -->
+    <script>
+        // Shared State & Data
+        const BUSINESS = {
+            name: "OCCASION – Event Planner & Decorators",
+            phone: "+91 90630 00750",
+            whatsapp: "919063000750",
+            address: "Panchasheel Enclave, Plot No. 6, Indus School Road, beside Valley Wave Play School, Bank Colony, Yapral, Secunderabad, Hyderabad, Telangana 500087, India",
+            googleRating: "5.0",
+            reviewCount: "54"
+        };
+
+        const PORTFOLIO_ITEMS = [
+            { id: 1, title: "Royal Botanical Wedding Mandap", category: "wedding", img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80", desc: "Exquisite ivory and forest green floral archways with warm fairy lighting and bespoke seating for high-end wedding receptions in Hyderabad." },
+            { id: 2, title: "Enchanted Garden 1st Birthday", category: "birthday", img: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1200&q=80", desc: "Whimsical pastel balloon installations, customized name cutouts, and rich thematic props crafted for milestone celebrations." },
+            { id: 3, title: "Traditional Cradle Naming Ceremony", category: "naming", img: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80", desc: "Traditional jasmine and marigold floral cascading over an antique brass cradle with elegant silk drapes." },
+            { id: 4, title: "Golden Anniversary Gala", category: "anniversary", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80", desc: "Sophisticated champagne gold balloon arches, candlelit pathways, and romantic floral centerpieces celebrating enduring love." },
+            { id: 5, title: "Boho Chic Engagement Backdrop", category: "wedding", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80", desc: "Pampas grass, macrame backdrops, and warm amber uplighting creating an intimate luxury aesthetic." },
+            { id: 6, title: "Celestial Starry Night Birthday", category: "birthday", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80", desc: "Deep midnight charcoal and metallic gold balloon styling with customized neon signage for premium evening parties." }
+        ];
+
+        const FAQS = [
+            { q: "Where is OCCASION located in Hyderabad?", a: "Our studio is located at Panchasheel Enclave, Plot No. 6, Indus School Road, beside Valley Wave Play School, Bank Colony, Yapral, Secunderabad, Hyderabad, Telangana 500087. We serve across Hyderabad and Secunderabad." },
+            { q: "How do I book an event decoration service?", a: "You can reach us directly via WhatsApp at +91 90630 00750, call us, or submit an enquiry through our contact form with your event type, date, and venue details." },
+            { q: "Are the photographs in your gallery actual client work?", a: "To maintain absolute transparency, all gallery photos currently featured are labelled as 'Design Inspiration / Concept Preview' representing our styling standards and bespoke capabilities." },
+            { q: "Do you customize decoration themes according to budget?", a: "Yes! We specialize in tailored event styling ranging from intimate home celebrations to grand banquet halls, ensuring every detail matches your vision and budget." }
+        ];
+
+        // Router Implementation
+        const router = {
+            currentPage: 'home',
+            navigate: function(page) {
+                this.currentPage = page;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                this.render();
+                updateActiveNav(page);
+            },
+            render: function() {
+                const container = document.getElementById('app-view');
+                switch(this.currentPage) {
+                    case 'home': container.innerHTML = renderHomePage(); break;
+                    case 'about': container.innerHTML = renderAboutPage(); break;
+                    case 'services': container.innerHTML = renderServicesPage(); break;
+                    case 'birthday': container.innerHTML = renderBirthdayPage(); break;
+                    case 'naming': container.innerHTML = renderNamingPage(); break;
+                    case 'wedding': container.innerHTML = renderWeddingPage(); break;
+                    case 'anniversary': container.innerHTML = renderAnniversaryPage(); break;
+                    case 'portfolio': container.innerHTML = renderPortfolioPage(); break;
+                    case 'reviews': container.innerHTML = renderReviewsPage(); break;
+                    case 'contact': container.innerHTML = renderContactPage(); break;
+                    default: container.innerHTML = renderHomePage();
+                }
+                attachDynamicListeners();
+            }
+        };
+
+        function updateActiveNav(page) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if(link.getAttribute('data-page') === page) {
+                    link.classList.add('border-gold', 'text-gold');
+                    link.classList.remove('text-forest');
+                } else {
+                    link.classList.remove('border-gold', 'text-gold');
+                    link.classList.add('text-forest');
+                }
+            });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        }
+
+        // ================= PAGE 1: HOME (16 SECTIONS) =================
+        function renderHomePage() {
+            return `
+                <div class="fade-in">
+                    <!-- Section 1: Cinematic Full-Screen Hero -->
+                    <section class="relative min-h-[90vh] flex items-center justify-center bg-charcoal text-ivory overflow-hidden py-20 px-4">
+                        <div class="absolute inset-0 z-0 opacity-40">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80" alt="Luxury Event Decor" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent z-10"></div>
+                        <div class="relative z-20 max-w-5xl mx-auto text-center space-y-8">
+                            <span class="inline-block bg-gold/20 text-gold border border-gold/40 px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
+                                Luxury Event Styling & Decor Studio in Hyderabad
+                            </span>
+                            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-ivory leading-tight">
+                                Transforming Moments Into <span class="gold-gradient-text italic">Timeless Artistry</span>
+                            </h1>
+                            <p class="text-ivory/80 text-lg sm:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                                Bespoke floral artistry, exquisite backdrops, and immersive event decorations tailored for weddings, birthdays, naming ceremonies, and anniversaries in Yapral & Hyderabad.
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                                <button onclick="router.navigate('contact')" class="w-full sm:w-auto bg-gold text-charcoal hover:bg-goldLight px-8 py-4 rounded-full font-semibold text-xs uppercase tracking-widest shadow-xl hover:scale-105 transition-all">
+                                    Book Your Event Design
+                                </button>
+                                <button onclick="router.navigate('portfolio')" class="w-full sm:w-auto bg-transparent border-2 border-gold text-ivory hover:bg-gold/10 px-8 py-4 rounded-full font-semibold text-xs uppercase tracking-widest transition-all">
+                                    Explore Gallery
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 2: Brand Introduction -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div class="space-y-6">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold block">Welcome to OCCASION</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest leading-tight">
+                                    Crafting Celebrations With Uncompromising Elegance
+                                </h2>
+                                <p class="text-charcoal/80 text-base leading-relaxed font-light">
+                                    Based in Yapral, Secunderabad, OCCASION – Event Planner & Decorators brings high-end aesthetic vision to every family milestone. From intimate naming ceremonies to grand wedding receptions, we curate environments that leave lasting impressions.
+                                </p>
+                                <div class="grid grid-cols-2 gap-6 pt-4 border-t border-gold/20">
+                                    <div>
+                                        <h3 class="font-serif text-3xl font-bold text-forest mb-1">54+</h3>
+                                        <p class="text-xs uppercase tracking-wider text-charcoal/70">Verified 5-Star Reviews</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-serif text-3xl font-bold text-forest mb-1">100%</h3>
+                                        <p class="text-xs uppercase tracking-wider text-charcoal/70">Bespoke Customization</p>
+                                    </div>
+                                </div>
+                                <div class="pt-2">
+                                    <button onclick="router.navigate('about')" class="inline-flex items-center gap-2 text-forest font-semibold text-xs uppercase tracking-widest hover:text-gold transition-colors">
+                                        Discover Our Story & Philosophy <i class="fa-solid fa-arrow-right text-gold"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-gold/30">
+                                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=80" alt="Event Styling" class="w-full h-[450px] object-cover">
+                                </div>
+                                <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-forest/10 rounded-2xl -z-0 border border-gold/20"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 3: Trust & Reputation -->
+                    <section class="py-16 bg-forest text-ivory">
+                        <div class="max-w-7xl mx-auto px-4 text-center space-y-6">
+                            <div class="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest border border-gold/30">
+                                <i class="fa-solid fa-star"></i> Verified Reputation
+                            </div>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-bold">Trusted by Families Across Hyderabad</h3>
+                            <div class="flex flex-wrap items-center justify-center gap-8 pt-4">
+                                <div class="bg-forestDark/60 border border-gold/30 px-8 py-6 rounded-2xl text-center">
+                                    <div class="text-gold text-3xl font-serif font-bold mb-1">${BUSINESS.googleRating} ★★★★★</div>
+                                    <p class="text-xs uppercase tracking-widest text-ivory/80">Google Rating (${BUSINESS.reviewCount} Reviews)</p>
+                                </div>
+                                <div class="bg-forestDark/60 border border-gold/30 px-8 py-6 rounded-2xl text-center">
+                                    <div class="text-gold text-3xl font-serif font-bold mb-1">Yapral, Hyd</div>
+                                    <p class="text-xs uppercase tracking-widest text-ivory/80">Primary Studio Location</p>
+                                </div>
+                                <div class="bg-forestDark/60 border border-gold/30 px-8 py-6 rounded-2xl text-center">
+                                    <div class="text-gold text-3xl font-serif font-bold mb-1">919063000750</div>
+                                    <p class="text-xs uppercase tracking-widest text-ivory/80">Direct WhatsApp Support</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 4: Full-Width Visual Statement -->
+                    <section class="relative py-32 bg-charcoal text-ivory text-center overflow-hidden">
+                        <div class="absolute inset-0 opacity-30">
+                            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=2000&q=80" alt="Atmospheric Decor" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 max-w-4xl mx-auto px-4 space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Atmospheric Excellence</span>
+                            <h2 class="font-serif text-4xl sm:text-6xl font-bold leading-tight">
+                                "Every Celebration Deserves A <span class="gold-gradient-text italic">Masterpiece Setting</span>"
+                            </h2>
+                            <p class="text-ivory/80 text-lg max-w-2xl mx-auto font-light">
+                                We combine architectural styling, premium florals, and cinematic lighting to craft environments that captivate your guests from the moment they arrive.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Section 5: Event Services Showcase -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Our Expertise</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">Comprehensive Event Decoration Services</h2>
+                                <p class="text-charcoal/80 font-light">Explore our core decoration verticals designed to elevate every family occasion.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                <!-- Birthday Card -->
+                                <div onclick="router.navigate('birthday')" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg border border-gold/20 hover:border-gold transition-all duration-300 flex flex-col justify-between">
+                                    <div class="relative h-64 overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80" alt="Birthday" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                                        <span class="absolute bottom-4 left-4 text-ivory font-serif text-xl font-bold">Birthday Decorations</span>
+                                    </div>
+                                    <div class="p-6 space-y-3">
+                                        <p class="text-xs text-charcoal/70 leading-relaxed">Magical balloon styling, themed backdrops, and custom LED props for all ages.</p>
+                                        <span class="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-forest group-hover:text-gold transition-colors">Explore Birthday <i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </div>
+                                <!-- Naming Ceremony Card -->
+                                <div onclick="router.navigate('naming')" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg border border-gold/20 hover:border-gold transition-all duration-300 flex flex-col justify-between">
+                                    <div class="relative h-64 overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" alt="Naming Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                                        <span class="absolute bottom-4 left-4 text-ivory font-serif text-xl font-bold">Naming Ceremony</span>
+                                    </div>
+                                    <div class="p-6 space-y-3">
+                                        <p class="text-xs text-charcoal/70 leading-relaxed">Traditional floral cradles, jasmine hangings, and serene sacred spaces for welcoming newborns.</p>
+                                        <span class="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-forest group-hover:text-gold transition-colors">Explore Naming <i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </div>
+                                <!-- Wedding Card -->
+                                <div onclick="router.navigate('wedding')" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg border border-gold/20 hover:border-gold transition-all duration-300 flex flex-col justify-between">
+                                    <div class="relative h-64 overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                                        <span class="absolute bottom-4 left-4 text-ivory font-serif text-xl font-bold">Wedding & Engagement</span>
+                                    </div>
+                                    <div class="p-6 space-y-3">
+                                        <p class="text-xs text-charcoal/70 leading-relaxed">Grand Mandaps, royal floral arches, and opulent stage designs for unforgettable unions.</p>
+                                        <span class="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-forest group-hover:text-gold transition-colors">Explore Wedding <i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </div>
+                                <!-- Anniversary Card -->
+                                <div onclick="router.navigate('anniversary')" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg border border-gold/20 hover:border-gold transition-all duration-300 flex flex-col justify-between">
+                                    <div class="relative h-64 overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Anniversary" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                                        <span class="absolute bottom-4 left-4 text-ivory font-serif text-xl font-bold">Anniversary Decor</span>
+                                    </div>
+                                    <div class="p-6 space-y-3">
+                                        <p class="text-xs text-charcoal/70 leading-relaxed">Romantic candlelit dinners, champagne gold arches, and milestone celebration setups.</p>
+                                        <span class="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-forest group-hover:text-gold transition-colors">Explore Anniversary <i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sections 6, 7, 8, 9: Detailed Feature Blocks -->
+                    <section class="py-20 bg-forest/5 border-y border-gold/20">
+                        <div class="max-w-7xl mx-auto px-4 space-y-20">
+                            <!-- Feature 6: Birthday Decoration Feature -->
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30">
+                                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1000&q=80" alt="Birthday Feature" class="w-full h-[380px] object-cover">
+                                </div>
+                                <div class="space-y-6">
+                                    <span class="text-xs font-semibold uppercase tracking-widest text-gold">01. Birthday Styling</span>
+                                    <h3 class="font-serif text-3xl font-bold text-forest">Magical Birthday Concepts For All Ages</h3>
+                                    <p class="text-charcoal/80 font-light leading-relaxed">
+                                        Whether it's a first birthday milestone or an elegant 50th gala, we design immersive balloon garlands, thematic cutouts, custom cake table displays, and stunning photo backdrops tailored to your preferences.
+                                    </p>
+                                    <button onclick="router.navigate('birthday')" class="bg-forest text-ivory hover:bg-forestDark px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all">
+                                        View Birthday Package Details
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Feature 7: Naming Ceremony Feature -->
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                <div class="space-y-6 order-2 lg:order-1">
+                                    <span class="text-xs font-semibold uppercase tracking-widest text-gold">02. Naming Ceremony Styling</span>
+                                    <h3 class="font-serif text-3xl font-bold text-forest">Sacred & Traditional Cradles (Palanquin Decor)</h3>
+                                    <p class="text-charcoal/80 font-light leading-relaxed">
+                                        Welcome your newborn with divine elegance. Our naming ceremony decorations feature traditional jasmine floral hangings, marigold accents, beautifully adorned antique cradles, and warm ethnic backdrops.
+                                    </p>
+                                    <button onclick="router.navigate('naming')" class="bg-forest text-ivory hover:bg-forestDark px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all">
+                                        View Naming Ceremony Details
+                                    </button>
+                                </div>
+                                <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30 order-1 lg:order-2">
+                                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1000&q=80" alt="Naming Ceremony Feature" class="w-full h-[380px] object-cover">
+                                </div>
+                            </div>
+                            <!-- Feature 8: Wedding & Engagement Feature -->
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30">
+                                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Wedding Feature" class="w-full h-[380px] object-cover">
+                                </div>
+                                <div class="space-y-6">
+                                    <span class="text-xs font-semibold uppercase tracking-widest text-gold">03. Wedding & Engagement Styling</span>
+                                    <h3 class="font-serif text-3xl font-bold text-forest">Opulent Mandaps & Romantic Floral Arches</h3>
+                                    <p class="text-charcoal/80 font-light leading-relaxed">
+                                        Create the wedding of your dreams with our grand stage designs, bespoke floral mandaps, fairy light canopies, and regal seating arrangements crafted for unforgettable matrimonial celebrations.
+                                    </p>
+                                    <button onclick="router.navigate('wedding')" class="bg-forest text-ivory hover:bg-forestDark px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all">
+                                        View Wedding Decoration Details
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Feature 9: Anniversary Feature -->
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                <div class="space-y-6 order-2 lg:order-1">
+                                    <span class="text-xs font-semibold uppercase tracking-widest text-gold">04. Anniversary Styling</span>
+                                    <h3 class="font-serif text-3xl font-bold text-forest">Romantic Candlelit Galas & Milestone Dinners</h3>
+                                    <p class="text-charcoal/80 font-light leading-relaxed">
+                                        Celebrate years of love and companionship with sophisticated champagne gold setups, romantic candlelit pathways, and intimate floral tablescapes designed to honor your journey.
+                                    </p>
+                                    <button onclick="router.navigate('anniversary')" class="bg-forest text-ivory hover:bg-forestDark px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all">
+                                        View Anniversary Packages
+                                    </button>
+                                </div>
+                                <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30 order-1 lg:order-2">
+                                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1000&q=80" alt="Anniversary Feature" class="w-full h-[380px] object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 10: Interactive 3D-Inspired Installation Preview -->
+                    <section class="py-24 px-4 bg-charcoal text-ivory text-center">
+                        <div class="max-w-4xl mx-auto space-y-8">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Immersive Experience</span>
+                            <h2 class="font-serif text-3xl sm:text-5xl font-bold">Interactive Event Space Visualizer</h2>
+                            <p class="text-ivory/80 max-w-2xl mx-auto font-light">
+                                Experience our interactive 3D spatial design concept simulator. Preview how custom lighting, floral pillars, and stage arches transform venue spaces in Hyderabad.
+                            </p>
+                            <div class="bg-charcoalDark border border-gold/40 rounded-2xl p-8 shadow-2xl relative overflow-hidden min-h-[300px] flex flex-col items-center justify-center">
+                                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#C8A66A_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                                <div class="relative z-10 space-y-4">
+                                    <div class="w-16 h-16 rounded-full bg-gold/20 border border-gold text-gold flex items-center justify-center mx-auto text-2xl animate-pulse">
+                                        <i class="fa-solid fa-cube"></i>
+                                    </div>
+                                    <h3 class="font-serif text-2xl font-bold">3D Concept Design Ready</h3>
+                                    <p class="text-xs uppercase tracking-widest text-ivory/70 max-w-md mx-auto">Our designers create customized 3D spatial renders for your venue before execution.</p>
+                                    <button onclick="router.navigate('contact')" class="bg-gold text-charcoal px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-goldLight transition-all">
+                                        Request Venue 3D Mockup
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 11: Featured Portfolio Gallery -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                                <div class="space-y-4 max-w-xl">
+                                    <span class="text-xs font-semibold uppercase tracking-widest text-gold">Our Recent Work</span>
+                                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">Featured Portfolio Gallery</h2>
+                                    <p class="text-charcoal/80 font-light">A glimpse into our signature styling projects across Hyderabad.</p>
+                                </div>
+                                <button onclick="router.navigate('portfolio')" class="bg-forest text-ivory hover:bg-forestDark px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all self-start md:self-auto">
+                                    View Full Portfolio <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                ${PORTFOLIO_ITEMS.slice(0, 3).map(item => `
+                                    <div onclick="openLightbox(${item.id})" class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg border border-gold/20 hover:border-gold transition-all">
+                                        <div class="relative h-72 overflow-hidden">
+                                            <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                            <span class="absolute top-4 left-4 bg-charcoal/80 text-gold text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-semibold border border-gold/30">Design Inspiration</span>
+                                        </div>
+                                        <div class="p-6 space-y-2">
+                                            <h3 class="font-serif text-xl font-bold text-forest">${item.title}</h3>
+                                            <p class="text-xs text-charcoal/70 line-clamp-2">${item.desc}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 12: Our Approach -->
+                    <section class="py-24 px-4 bg-forest/5 border-y border-gold/20">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">How We Work</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">Our 4-Step Design Approach</h2>
+                                <p class="text-charcoal/80 font-light">From initial concept to flawless execution on your special day.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4 relative">
+                                    <span class="absolute top-6 right-6 font-serif text-4xl font-bold text-gold/30">01</span>
+                                    <h3 class="font-serif text-xl font-bold text-forest">Consultation</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">We discuss your vision, event date, venue details, and color palette preferences over WhatsApp or in person.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4 relative">
+                                    <span class="absolute top-6 right-6 font-serif text-4xl font-bold text-gold/30">02</span>
+                                    <h3 class="font-serif text-xl font-bold text-forest">Design Ideas</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">We curate customized mood boards, floral arrangements, and architectural layouts tailored to your budget.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4 relative">
+                                    <span class="absolute top-6 right-6 font-serif text-4xl font-bold text-gold/30">03</span>
+                                    <h3 class="font-serif text-xl font-bold text-forest">Planning</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Our logistics team coordinates sourcing, floral delivery schedules, and setup timelines with absolute precision.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4 relative">
+                                    <span class="absolute top-6 right-6 font-serif text-4xl font-bold text-gold/30">04</span>
+                                    <h3 class="font-serif text-xl font-bold text-forest">Execution</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">On the event day, our professional decorators transform the venue into a breathtaking masterpiece before guests arrive.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 13: Why Choose OCCASION -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Excellence Guaranteed</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">Why Choose OCCASION</h2>
+                                <p class="text-charcoal/80 font-light">What makes us Hyderabad's preferred luxury event decorators.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <div class="w-12 h-12 rounded-xl bg-forest/10 text-forest flex items-center justify-center text-xl"><i class="fa-solid fa-crown text-gold"></i></div>
+                                    <h3 class="font-serif text-xl font-bold text-forest">Bespoke Aesthetics</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">No generic templates. Every decoration is custom-designed to match your exact theme and style.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <div class="w-12 h-12 rounded-xl bg-forest/10 text-forest flex items-center justify-center text-xl"><i class="fa-solid fa-star text-gold"></i></div>
+                                    <h3 class="font-serif text-xl font-bold text-forest">5.0 Star Reputation</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Backed by 54 verified client reviews praising our punctuality, creativity, and attention to detail.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <div class="w-12 h-12 rounded-xl bg-forest/10 text-forest flex items-center justify-center text-xl"><i class="fa-solid fa-clock text-gold"></i></div>
+                                    <h3 class="font-serif text-xl font-bold text-forest">Punctual Execution</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">We respect timelines. All venue setups are completed well before your guests' scheduled arrival.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <div class="w-12 h-12 rounded-xl bg-forest/10 text-forest flex items-center justify-center text-xl"><i class="fa-solid fa-handshake text-gold"></i></div>
+                                    <h3 class="font-serif text-xl font-bold text-forest">Transparent Pricing</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Clear quotations with no hidden costs. We provide maximum value for every budget tier.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 14: Customer Testimonials -->
+                    <section class="py-24 px-4 bg-forest text-ivory">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Verified Feedback</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold">What Our Clients Say</h2>
+                                <p class="text-ivory/80 font-light">Real reviews from families across Secunderabad & Hyderabad.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="bg-forestDark/80 p-8 rounded-2xl border border-gold/30 space-y-6">
+                                    <div class="text-gold text-lg">★★★★★</div>
+                                    <p class="text-xs text-ivory/90 leading-relaxed italic">"OCCASION transformed our daughter's 1st birthday into a fairytale wonderland. The balloon styling and stage decor in Yapral were breathtaking!"</p>
+                                    <div>
+                                        <h4 class="font-serif font-bold">Srilatha Reddy</h4>
+                                        <span class="text-[10px] text-ivory/70 uppercase tracking-widest">Birthday Client, Hyderabad</span>
+                                    </div>
+                                </div>
+                                <div class="bg-forestDark/80 p-8 rounded-2xl border border-gold/30 space-y-6">
+                                    <div class="text-gold text-lg">★★★★★</div>
+                                    <p class="text-xs text-ivory/90 leading-relaxed italic">"Absolute professionals! The traditional cradle naming ceremony decor was immaculate. Fresh flowers and pristine styling."</p>
+                                    <div>
+                                        <h4 class="font-serif font-bold">Rajesh Varma</h4>
+                                        <span class="text-[10px] text-ivory/70 uppercase tracking-widest">Naming Ceremony Client</span>
+                                    </div>
+                                </div>
+                                <div class="bg-forestDark/80 p-8 rounded-2xl border border-gold/30 space-y-6">
+                                    <div class="text-gold text-lg">★★★★★</div>
+                                    <p class="text-xs text-ivory/90 leading-relaxed italic">"5.0 rating is truly well deserved. From consultation to wedding reception execution, everything was seamless and stunning."</p>
+                                    <div>
+                                        <h4 class="font-serif font-bold">Priya & Vikram</h4>
+                                        <span class="text-[10px] text-ivory/70 uppercase tracking-widest">Wedding Reception Client</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 15: Frequently Asked Questions (Accordion) -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-4xl mx-auto space-y-12">
+                            <div class="text-center space-y-4">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Got Questions?</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">Frequently Asked Questions</h2>
+                                <p class="text-charcoal/80 font-light">Everything you need to know about booking our decoration services.</p>
+                            </div>
+                            <div class="space-y-4">
+                                ${FAQS.map((faq, idx) => `
+                                    <div class="bg-white rounded-2xl border border-gold/20 overflow-hidden shadow-sm">
+                                        <button onclick="toggleFaq(${idx})" class="w-full px-6 py-5 text-left flex items-center justify-between font-serif text-lg font-bold text-forest focus:outline-none">
+                                            <span>${faq.q}</span>
+                                            <i class="fa-solid fa-chevron-down text-gold transition-transform duration-300" id="faq-icon-${idx}"></i>
+                                        </button>
+                                        <div id="faq-body-${idx}" class="hidden px-6 pb-6 text-xs text-charcoal/80 leading-relaxed border-t border-gold/10 pt-4">
+                                            ${faq.a}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 16: Final Enquiry Banner & Complete Footer -->
+                    ${renderFooterAndBanner()}
+                </div>
+            `;
+        }
+
+        // ================= PAGE 2: ABOUT US (10 SECTIONS) =================
+        function renderAboutPage() {
+            return `
+                <div class="fade-in">
+                    <!-- 1. Editorial Hero -->
+                    <section class="relative py-24 bg-charcoal text-ivory text-center px-4 overflow-hidden">
+                        <div class="absolute inset-0 opacity-30">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=2000&q=80" alt="About Hero" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 max-w-4xl mx-auto space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">About OCCASION</span>
+                            <h1 class="font-serif text-4xl sm:text-6xl font-bold">The Art & Soul of Luxury Event Decor</h1>
+                            <p class="text-ivory/80 text-lg max-w-2xl mx-auto font-light">Dedicated to transforming venues into breathtaking visual narratives in Yapral, Secunderabad, and Hyderabad.</p>
+                        </div>
+                    </section>
+
+                    <!-- 2. Introduction to OCCASION -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div class="space-y-6">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Our Studio</span>
+                                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Rooted in Yapral, Serving All of Hyderabad</h2>
+                                <p class="text-charcoal/80 text-base leading-relaxed font-light">
+                                    OCCASION – Event Planner & Decorators was founded with a singular mission: to elevate family celebrations into extraordinary aesthetic experiences. Operating from Panchasheel Enclave, Yapral, our expert designers bring meticulous craftsmanship to every project.
+                                </p>
+                                <p class="text-charcoal/80 text-base leading-relaxed font-light">
+                                    We believe that every milestone—whether welcoming a newborn, celebrating a birthday, or uniting in marriage—deserves a setting crafted with passion, precision, and luxury.
+                                </p>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30">
+                                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Studio" class="w-full h-[400px] object-cover">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 3. Brand Philosophy -->
+                    <section class="py-20 bg-forest text-ivory">
+                        <div class="max-w-4xl mx-auto px-4 text-center space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Our Philosophy</span>
+                            <h2 class="font-serif text-3xl sm:text-5xl font-bold">"Design is not just what it looks like, but how it makes you feel."</h2>
+                            <p class="text-ivory/80 text-base font-light leading-relaxed">
+                                We approach every event as an exclusive canvas. By blending traditional warmth with contemporary luxury styling, we create environments that resonate deeply with your family and guests.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- 4. Approach to Creative Decoration -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Creative Excellence</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">Our Creative Process</h2>
+                                <p class="text-charcoal/80 font-light">How we translate your imagination into physical reality.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <h3 class="font-serif text-xl font-bold text-forest">Thematic Concept</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Every decoration begins with a cohesive theme, selecting color palettes and mood boards that reflect the occasion's spirit.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <h3 class="font-serif text-xl font-bold text-forest">Spatial Harmony</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">We analyze venue dimensions to ensure seamless guest movement, striking photo backdrops, and balanced focal points.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <h3 class="font-serif text-xl font-bold text-forest">Flawless Delivery</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Our seasoned decor team manages all logistics, floral sourcing, and on-site setup with absolute punctuality.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 5. Styling Details: Flowers, Colors, Backdrops, Lighting -->
+                    <section class="py-24 px-4 bg-forest/5 border-y border-gold/20">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Attention to Detail</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">The Four Pillars of Our Styling</h2>
+                                <p class="text-charcoal/80 font-light">The elements that elevate our event decoration.</p>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                                <div class="bg-white p-6 rounded-2xl shadow-md border border-gold/20 space-y-3">
+                                    <div class="text-gold text-2xl"><i class="fa-solid fa-seedling"></i></div>
+                                    <h3 class="font-serif text-lg font-bold text-forest">Bespoke Florals</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Fresh roses, orchids, jasmine, and exotic greens sourced daily for pristine vibrancy.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-2xl shadow-md border border-gold/20 space-y-3">
+                                    <div class="text-gold text-2xl"><i class="fa-solid fa-palette"></i></div>
+                                    <h3 class="font-serif text-lg font-bold text-forest">Harmonious Palettes</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Sophisticated color combinations tailored to match traditional rituals or modern aesthetics.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-2xl shadow-md border border-gold/20 space-y-3">
+                                    <div class="text-gold text-2xl"><i class="fa-solid fa-image"></i></div>
+                                    <h3 class="font-serif text-lg font-bold text-forest">Architectural Backdrops</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Custom arches, wooden panels, fabric drapes, and metallic frames.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-2xl shadow-md border border-gold/20 space-y-3">
+                                    <div class="text-gold text-2xl"><i class="fa-solid fa-lightbulb"></i></div>
+                                    <h3 class="font-serif text-lg font-bold text-forest">Atmospheric Lighting</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Warm amber uplighting, fairy lights, and pin-spotting to highlight key moments.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 6. Customer Experience & Coordination -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-4xl mx-auto text-center space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Seamless Coordination</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Stress-Free Planning Experience</h2>
+                            <p class="text-charcoal/80 text-base font-light leading-relaxed">
+                                We understand that family celebrations require peace of mind. Our dedicated coordinators manage every detail from your initial WhatsApp consultation to post-event teardown, allowing you to focus entirely on your guests.
+                            </p>
+                            <button onclick="router.navigate('contact')" class="bg-forest text-ivory hover:bg-forestDark px-8 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all">
+                                Connect With Our Team
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- 7. Inspiration Gallery Preview -->
+                    <section class="py-24 px-4 bg-charcoal text-ivory">
+                        <div class="max-w-7xl mx-auto space-y-12">
+                            <div class="text-center space-y-4">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Visual Standards</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold">Styling Inspiration Gallery</h2>
+                                <p class="text-ivory/80 font-light">A preview of design concepts executed by our team.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                ${PORTFOLIO_ITEMS.slice(0, 3).map(item => `
+                                    <div onclick="openLightbox(${item.id})" class="group cursor-pointer rounded-2xl overflow-hidden border border-gold/30">
+                                        <div class="relative h-64 overflow-hidden">
+                                            <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                            <span class="absolute bottom-4 left-4 bg-charcoal/80 text-gold text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold border border-gold/30">Concept Preview</span>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 8. Event Planning Process -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-12 text-center">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Step-by-Step</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Ready To Begin Your Event Journey?</h2>
+                            <div class="flex justify-center">
+                                <button onclick="router.navigate('contact')" class="bg-gold text-charcoal hover:bg-goldLight px-8 py-4 rounded-full font-semibold text-xs uppercase tracking-widest shadow-lg">
+                                    Start Your Event Enquiry
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 9. Verified Customer Feedback -->
+                    <section class="py-20 bg-forest/5 border-y border-gold/20">
+                        <div class="max-w-4xl mx-auto px-4 text-center space-y-6">
+                            <div class="text-gold text-2xl">★★★★★</div>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-forest">"OCCASION is the most reliable and creative event decorator in Secunderabad."</h3>
+                            <p class="text-xs uppercase tracking-widest text-charcoal/70">— Verified Google Review (${BUSINESS.googleRating} / 5.0 across ${BUSINESS.reviewCount} reviews)</p>
+                        </div>
+                    </section>
+
+                    <!-- 10. Footer -->
+                    ${renderFooterAndBanner()}
+                </div>
+            `;
+        }
+
+        // ================= PAGE 3: ALL SERVICES (12 SECTIONS) =================
+        function renderServicesPage() {
+            return `
+                <div class="fade-in">
+                    <!-- 1. Full-Width Services Hero -->
+                    <section class="relative py-24 bg-charcoal text-ivory text-center px-4 overflow-hidden">
+                        <div class="absolute inset-0 opacity-30">
+                            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=2000&q=80" alt="Services Hero" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 max-w-4xl mx-auto space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Our Offerings</span>
+                            <h1 class="font-serif text-4xl sm:text-6xl font-bold">Complete Event Decoration Services</h1>
+                            <p class="text-ivory/80 text-lg max-w-2xl mx-auto font-light">Explore our comprehensive range of luxury styling verticals tailored for every celebration.</p>
+                        </div>
+                    </section>
+
+                    <!-- 2. Introduction to Event Styling -->
+                    <section class="py-20 px-4 bg-ivory text-center">
+                        <div class="max-w-3xl mx-auto space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Bespoke Styling</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Tailored Decor For Every Milestone</h2>
+                            <p class="text-charcoal/80 font-light leading-relaxed">
+                                From intimate home gatherings to grand banquet halls across Hyderabad, OCCASION delivers unmatched aesthetic precision. Choose your service category below to explore detailed packages and styling options.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- 3. Birthday Decorations -->
+                    <section class="py-20 px-4 bg-forest/5 border-t border-gold/20">
+                        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30">
+                                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1000&q=80" alt="Birthday" class="w-full h-[380px] object-cover">
+                            </div>
+                            <div class="space-y-6">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Service 01</span>
+                                <h3 class="font-serif text-3xl font-bold text-forest">Birthday Decorations</h3>
+                                <p class="text-charcoal/80 font-light leading-relaxed">Magical balloon arches, customized theme cutouts, LED neon signage, and stunning cake table setups for kids and adults.</p>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="bg-white px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">1st Birthdays</span>
+                                    <span class="bg-white px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Theme Parties</span>
+                                    <span class="bg-white px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Balloon Styling</span>
+                                </div>
+                                <div class="pt-4">
+                                    <button onclick="router.navigate('birthday')" class="bg-forest text-ivory hover:bg-forestDark px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all">
+                                        View Birthday Service Page <i class="fa-solid fa-arrow-right ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 4. Naming Ceremony Decorations -->
+                    <section class="py-20 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div class="space-y-6 order-2 lg:order-1">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Service 02</span>
+                                <h3 class="font-serif text-3xl font-bold text-forest">Naming Ceremony Decorations</h3>
+                                <p class="text-charcoal/80 font-light leading-relaxed">Traditional floral cradles (palanquin), jasmine hangings, marigold arches, and sacred ritual setups welcoming your newborn.</p>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="bg-forest/5 px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Cradle Decor</span>
+                                    <span class="bg-forest/5 px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Floral Mandap</span>
+                                    <span class="bg-forest/5 px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Traditional Setup</span>
+                                </div>
+                                <div class="pt-4">
+                                    <button onclick="router.navigate('naming')" class="bg-forest text-ivory hover:bg-forestDark px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all">
+                                        View Naming Ceremony Page <i class="fa-solid fa-arrow-right ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30 order-1 lg:order-2">
+                                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1000&q=80" alt="Naming Ceremony" class="w-full h-[380px] object-cover">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 5. Wedding Decorations -->
+                    <section class="py-20 px-4 bg-forest/5 border-t border-gold/20">
+                        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30">
+                                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Wedding" class="w-full h-[380px] object-cover">
+                            </div>
+                            <div class="space-y-6">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Service 03</span>
+                                <h3 class="font-serif text-3xl font-bold text-forest">Wedding & Engagement Decorations</h3>
+                                <p class="text-charcoal/80 font-light leading-relaxed">Grand Mandaps, royal floral arches, fairy light canopies, and opulent stage designs for unforgettable unions.</p>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="bg-white px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Mandap Styling</span>
+                                    <span class="bg-white px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Engagement Backdrops</span>
+                                    <span class="bg-white px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Reception Stages</span>
+                                </div>
+                                <div class="pt-4">
+                                    <button onclick="router.navigate('wedding')" class="bg-forest text-ivory hover:bg-forestDark px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all">
+                                        View Wedding Service Page <i class="fa-solid fa-arrow-right ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 6. Anniversary Celebrations -->
+                    <section class="py-20 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div class="space-y-6 order-2 lg:order-1">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Service 04</span>
+                                <h3 class="font-serif text-3xl font-bold text-forest">Anniversary Celebrations</h3>
+                                <p class="text-charcoal/80 font-light leading-relaxed">Romantic candlelit dinners, champagne gold arches, and milestone celebration setups honoring enduring love.</p>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="bg-forest/5 px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Milestone Galas</span>
+                                    <span class="bg-forest/5 px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Candlelit Dinners</span>
+                                    <span class="bg-forest/5 px-3 py-1 rounded-full text-xs font-medium border border-gold/30 text-forest">Gold Balloon Arches</span>
+                                </div>
+                                <div class="pt-4">
+                                    <button onclick="router.navigate('anniversary')" class="bg-forest text-ivory hover:bg-forestDark px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all">
+                                        View Anniversary Service Page <i class="fa-solid fa-arrow-right ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30 order-1 lg:order-2">
+                                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1000&q=80" alt="Anniversary" class="w-full h-[380px] object-cover">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 7. Family Celebrations & Custom Event Concepts -->
+                    <section class="py-20 bg-forest text-ivory">
+                        <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Custom Concepts</span>
+                            <h2 class="font-serif text-3xl sm:text-5xl font-bold">Have A Unique Event Concept?</h2>
+                            <p class="text-ivory/80 max-w-2xl mx-auto font-light leading-relaxed">
+                                From housewarming ceremonies (Griha Pravesham) to baby showers (Seemantham) and corporate celebrations, we design custom decor packages tailored to your exact vision.
+                            </p>
+                            <button onclick="router.navigate('contact')" class="bg-gold text-charcoal px-8 py-4 rounded-full font-semibold text-xs uppercase tracking-widest hover:bg-goldLight transition-all">
+                                Request Custom Decor Concept
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- 8. Decoration Styles and Themes -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Aesthetic Styles</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">Our Signature Design Themes</h2>
+                                <p class="text-charcoal/80 font-light">Choose from our curated collection of aesthetic themes.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <h3 class="font-serif text-xl font-bold text-forest">Royal Botanical</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Rich green foliage paired with ivory roses and gold metallic accents for opulent weddings and receptions.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <h3 class="font-serif text-xl font-bold text-forest">Whimsical Pastel</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Soft blush, ivory, and champagne tones with delicate balloon styling for birthdays and baby showers.</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-4">
+                                    <h3 class="font-serif text-xl font-bold text-forest">Traditional Heritage</h3>
+                                    <p class="text-xs text-charcoal/70 leading-relaxed">Authentic jasmine, marigold, and brass accents honoring cultural naming ceremonies and traditional poojas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 9. Gallery Preview -->
+                    <section class="py-20 px-4 bg-forest/5 border-y border-gold/20 text-center">
+                        <div class="max-w-4xl mx-auto space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Visual Gallery</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Explore Our Complete Portfolio</h2>
+                            <p class="text-charcoal/80 font-light">View our extensive gallery of design inspirations and concept previews.</p>
+                            <button onclick="router.navigate('portfolio')" class="bg-forest text-ivory px-8 py-3 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-forestDark transition-all">
+                                Open Portfolio Gallery <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- 10. FAQs -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-4xl mx-auto space-y-12">
+                            <div class="text-center space-y-4">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">FAQ</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">Services Frequently Asked Questions</h2>
+                            </div>
+                            <div class="space-y-4">
+                                ${FAQS.map((faq, idx) => `
+                                    <div class="bg-white rounded-2xl border border-gold/20 overflow-hidden shadow-sm">
+                                        <button onclick="toggleFaq('s-'+${idx})" class="w-full px-6 py-5 text-left flex items-center justify-between font-serif text-lg font-bold text-forest focus:outline-none">
+                                            <span>${faq.q}</span>
+                                            <i class="fa-solid fa-chevron-down text-gold transition-transform duration-300" id="faq-icon-s-${idx}"></i>
+                                        </button>
+                                        <div id="faq-body-s-${idx}" class="hidden px-6 pb-6 text-xs text-charcoal/80 leading-relaxed border-t border-gold/10 pt-4">
+                                            ${faq.a}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 11 & 12. Final Enquiry & Footer -->
+                    ${renderFooterAndBanner()}
+                </div>
+            `;
+        }
+
+        // ================= DETAILED SERVICE TEMPLATE GENERATOR (Pages 4, 5, 6, 7) =================
+        function renderDetailedServicePage(config) {
+            return `
+                <div class="fade-in">
+                    <!-- 1. Unique Hero Image and Headline -->
+                    <section class="relative py-28 bg-charcoal text-ivory text-center px-4 overflow-hidden">
+                        <div class="absolute inset-0 opacity-40">
+                            <img src="${config.heroImg}" alt="${config.title}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent z-10"></div>
+                        <div class="relative z-20 max-w-4xl mx-auto space-y-6">
+                            <span class="bg-gold/20 text-gold border border-gold/40 px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
+                                OCCASION Specialization
+                            </span>
+                            <h1 class="font-serif text-4xl sm:text-6xl font-bold">${config.title}</h1>
+                            <p class="text-ivory/80 text-lg max-w-2xl mx-auto font-light">${config.subtitle}</p>
+                        </div>
+                    </section>
+
+                    <!-- 2. Detailed Introduction -->
+                    <section class="py-20 px-4 bg-ivory">
+                        <div class="max-w-4xl mx-auto space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Overview</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Elevating ${config.title} in Hyderabad</h2>
+                            <p class="text-charcoal/80 text-base leading-relaxed font-light">
+                                ${config.introText}
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- 3. Event Styling Inspiration -->
+                    <section class="py-20 bg-forest/5 border-y border-gold/20 px-4">
+                        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div class="space-y-6">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Design Aesthetics</span>
+                                <h3 class="font-serif text-3xl font-bold text-forest">${config.inspirationTitle}</h3>
+                                <p class="text-charcoal/80 font-light leading-relaxed">${config.inspirationText}</p>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-xl border border-gold/30">
+                                <img src="${config.inspirationImg}" alt="Inspiration" class="w-full h-[380px] object-cover">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 4. Theme and Color Ideas -->
+                    <section class="py-20 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-12">
+                            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Color Palettes</span>
+                                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Popular Theme & Color Ideas</h2>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                ${config.themes.map(t => `
+                                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-3">
+                                        <h3 class="font-serif text-xl font-bold text-forest">${t.name}</h3>
+                                        <p class="text-xs text-charcoal/70 leading-relaxed">${t.desc}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 5. Large Image Gallery -->
+                    <section class="py-20 bg-charcoal text-ivory px-4">
+                        <div class="max-w-7xl mx-auto space-y-12">
+                            <div class="text-center space-y-4">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Concept Gallery</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold">Visual Concept Preview</h2>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                ${config.gallery.map((img, idx) => `
+                                    <div onclick="openLightbox(${idx + 10})" class="group cursor-pointer rounded-2xl overflow-hidden border border-gold/30">
+                                        <div class="relative h-64 overflow-hidden">
+                                            <img src="${img}" alt="Gallery item" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                            <span class="absolute bottom-4 left-4 bg-charcoal/80 text-gold text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold border border-gold/30">Design Inspiration</span>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 6. Decoration Details and Customization Possibilities -->
+                    <section class="py-20 px-4 bg-ivory">
+                        <div class="max-w-4xl mx-auto space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Customization</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Bespoke Customization Options</h2>
+                            <p class="text-charcoal/80 text-base leading-relaxed font-light">
+                                Every ${config.title.toLowerCase()} is fully customizable. From personalized neon signage, name boards, and custom floral arches to specific table settings and lighting moods, our team in Yapral, Hyderabad brings your precise vision to life.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- 7. Planning Considerations -->
+                    <section class="py-20 bg-forest/5 border-y border-gold/20 px-4">
+                        <div class="max-w-4xl mx-auto space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Planning Guide</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Important Planning Considerations</h2>
+                            <ul class="space-y-4 text-xs sm:text-sm text-charcoal/80">
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i> <span><strong>Venue Access:</strong> We coordinate with your banquet hall or home management in Hyderabad to secure timely entry for setup.</span></li>
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i> <span><strong>Timeline:</strong> All decorations are completed 1-2 hours prior to scheduled guest arrival.</span></li>
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i> <span><strong>Advance Booking:</strong> We recommend booking at least 2 weeks in advance to ensure date availability.</span></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 8. Related Services -->
+                    <section class="py-20 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-12">
+                            <div class="text-center space-y-4">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Explore More</span>
+                                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Related Event Services</h2>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                                ${config.related.map(r => `
+                                    <div onclick="router.navigate('${r.route}')" class="group cursor-pointer bg-white p-6 rounded-2xl shadow-md border border-gold/20 hover:border-gold transition-all text-center space-y-3">
+                                        <h3 class="font-serif text-xl font-bold text-forest">${r.name}</h3>
+                                        <span class="text-xs font-semibold uppercase tracking-wider text-gold inline-flex items-center gap-1">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 9. Relevant FAQs -->
+                    <section class="py-20 bg-forest/5 border-t border-gold/20 px-4">
+                        <div class="max-w-4xl mx-auto space-y-12">
+                            <div class="text-center space-y-4">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">FAQ</span>
+                                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">${config.title} FAQs</h2>
+                            </div>
+                            <div class="space-y-4">
+                                ${FAQS.map((faq, idx) => `
+                                    <div class="bg-white rounded-2xl border border-gold/20 overflow-hidden shadow-sm">
+                                        <button onclick="toggleFaq('d-'+${idx})" class="w-full px-6 py-5 text-left flex items-center justify-between font-serif text-lg font-bold text-forest focus:outline-none">
+                                            <span>${faq.q}</span>
+                                            <i class="fa-solid fa-chevron-down text-gold transition-transform duration-300" id="faq-icon-d-${idx}"></i>
+                                        </button>
+                                        <div id="faq-body-d-${idx}" class="hidden px-6 pb-6 text-xs text-charcoal/80 leading-relaxed border-t border-gold/10 pt-4">
+                                            ${faq.a}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 10. WhatsApp Enquiry Section & Footer -->
+                    ${renderFooterAndBanner()}
+                </div>
+            `;
+        }
+
+        // Specific Service Page Renderers (4, 5, 6, 7)
+        function renderBirthdayPage() {
+            return renderDetailedServicePage({
+                title: "Birthday Decoration",
+                subtitle: "Magical balloon arches, themed backdrops, and bespoke styling for all milestone birthdays in Hyderabad.",
+                heroImg: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=2000&q=80",
+                introText: "Whether you are celebrating a baby's 1st birthday, a sweet 16, or a milestone 50th gala, OCCASION brings unmatched creativity to birthday decor in Yapral and Hyderabad. Our designers craft customized balloon garlands, thematic cutouts, glowing neon signage, and stunning cake table backdrops tailored to your exact preferences.",
+                inspirationTitle: "Whimsical & Vibrant Birthday Aesthetics",
+                inspirationText: "We combine organic balloon styling with custom printed backdrops and warm fairy lighting to create immersive party environments that delight children and adults alike.",
+                inspirationImg: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80",
+                themes: [
+                    { name: "Pastel Wonderland", desc: "Soft blush, ivory, and gold balloon styling ideal for 1st birthdays and baby showers." },
+                    { name: "Celestial Night", desc: "Midnight charcoal and metallic gold balloon setups with glowing star lights for evening parties." },
+                    { name: "Jungle Safari", desc: "Lush green foliage, animal props, and earthy tones for adventurous kids' birthdays." }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
+                ],
+                related: [
+                    { name: "Naming Ceremony", route: "naming" },
+                    { name: "Wedding & Engagement", route: "wedding" },
+                    { name: "Anniversary Decoration", route: "anniversary" }
+                ]
+            });
+        }
+
+        function renderNamingPage() {
+            return renderDetailedServicePage({
+                title: "Naming Ceremony Decoration",
+                subtitle: "Traditional floral cradles, jasmine hangings, and serene sacred spaces welcoming your newborn.",
+                heroImg: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=2000&q=80",
+                introText: "Welcome your newborn into the world with divine elegance and traditional warmth. Our naming ceremony decorations feature pristine jasmine floral hangings, marigold accents, beautifully adorned antique cradles, and ethnic backdrops tailored for family celebrations in Hyderabad.",
+                inspirationTitle: "Traditional Elegance & Floral Cradles",
+                inspirationText: "We honor cultural traditions while infusing luxurious floral craftsmanship. Every cradle is decorated with fresh fragrant jasmine, roses, and silk drapes.",
+                inspirationImg: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1000&q=80",
+                themes: [
+                    { name: "Jasmine & Marigold", desc: "Traditional yellow and white floral cascades honoring classic Indian ritual aesthetics." },
+                    { name: "Royal Ivory Cradle", desc: "Sophisticated ivory and gold draping with antique brass cradle ornamentation." },
+                    { name: "Floral Canopy", desc: "Overhead floral chandeliers and serene seating arrangements for family blessings." }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
+                ],
+                related: [
+                    { name: "Birthday Decoration", route: "birthday" },
+                    { name: "Wedding & Engagement", route: "wedding" },
+                    { name: "Anniversary Decoration", route: "anniversary" }
+                ]
+            });
+        }
+
+        function renderWeddingPage() {
+            return renderDetailedServicePage({
+                title: "Wedding & Engagement Decoration",
+                subtitle: "Grand Mandaps, royal floral arches, and opulent stage designs for unforgettable unions.",
+                heroImg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80",
+                introText: "Create the wedding of your dreams with OCCASION. From intimate ring ceremonies to grand wedding receptions across Hyderabad, we curate opulent mandaps, bespoke floral backdrops, and romantic lighting that leave your guests spellbound.",
+                inspirationTitle: "Opulent Mandaps & Botanical Arches",
+                inspirationText: "Our wedding styling integrates architectural grandeur with delicate floral artistry, ensuring every photo angle captures timeless beauty.",
+                inspirationImg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
+                themes: [
+                    { name: "Royal Botanical", desc: "Rich green foliage, ivory roses, and gold metallic arches for grand ballroom receptions." },
+                    { name: "Boho Chic Engagement", desc: "Pampas grass, macrame, and warm amber uplighting for intimate ring ceremonies." },
+                    { name: "Traditional Mandap", desc: "Sacred fire altar ornamentation with cascading marigolds and rich silk draping." }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80"
+                ],
+                related: [
+                    { name: "Anniversary Decoration", route: "anniversary" },
+                    { name: "Birthday Decoration", route: "birthday" },
+                    { name: "Naming Ceremony", route: "naming" }
+                ]
+            });
+        }
+
+        function renderAnniversaryPage() {
+            return renderDetailedServicePage({
+                title: "Anniversary Decoration",
+                subtitle: "Romantic candlelit galas and milestone celebration setups honoring enduring love.",
+                heroImg: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=2000&q=80",
+                introText: "Celebrate years of love and companionship with sophisticated champagne gold setups, romantic candlelit pathways, and intimate floral tablescapes designed to honor your journey.",
+                inspirationTitle: "Romantic Candlelit Galas & Gold Arches",
+                inspirationText: "We specialize in anniversary celebrations that evoke romance and elegance, featuring warm lighting and exquisite floral centerpieces.",
+                inspirationImg: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1000&q=80",
+                themes: [
+                    { name: "Champagne Gold Gala", desc: "Metallic gold balloon arches and sparkling fairy light backdrops for 25th or 50th anniversaries." },
+                    { name: "Intimate Candlelit Dinner", desc: "Rose petal pathways, candlelit tablescapes, and romantic music ambiance." },
+                    { name: "Floral Memory Arch", desc: "Photo display arches interwoven with fresh roses and romantic lighting." }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80"
+                ],
+                related: [
+                    { name: "Wedding & Engagement", route: "wedding" },
+                    { name: "Birthday Decoration", route: "birthday" },
+                    { name: "Naming Ceremony", route: "naming" }
+                ]
+            });
+        }
+
+        // ================= PAGE 8: PORTFOLIO AND GALLERY (10 SECTIONS) =================
+        function renderPortfolioPage() {
+            return `
+                <div class="fade-in">
+                    <!-- 1. Cinematic Portfolio Hero -->
+                    <section class="relative py-28 bg-charcoal text-ivory text-center px-4 overflow-hidden">
+                        <div class="absolute inset-0 opacity-40">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80" alt="Portfolio Hero" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent z-10"></div>
+                        <div class="relative z-20 max-w-4xl mx-auto space-y-6">
+                            <span class="bg-gold/20 text-gold border border-gold/40 px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
+                                Design Inspiration Gallery
+                            </span>
+                            <h1 class="font-serif text-4xl sm:text-6xl font-bold">Our Visual Portfolio</h1>
+                            <p class="text-ivory/80 text-lg max-w-2xl mx-auto font-light">Explore our extensive collection of luxury event decoration concepts, mandaps, balloon arches, and floral styling.</p>
+                        </div>
+                    </section>
+
+                    <!-- 2. Introduction to Gallery -->
+                    <section class="py-16 px-4 bg-ivory text-center">
+                        <div class="max-w-3xl mx-auto space-y-4">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Transparency Note</span>
+                            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-forest">Concept Preview & Design Inspiration</h2>
+                            <p class="text-charcoal/80 text-xs sm:text-sm font-light leading-relaxed">
+                                To maintain absolute transparency, all visual items in this gallery are clearly labelled as <strong>“Design Inspiration / Concept Preview”</strong> showcasing our styling capabilities prior to real client project photography. Click any item to inspect details.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- 3. Interactive Event Category Filters -->
+                    <section class="py-8 bg-forest/5 border-y border-gold/20 px-4">
+                        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-4">
+                            <button onclick="filterPortfolio('all')" class="portfolio-filter-btn active bg-forest text-ivory px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all" data-filter="all">All Concepts</button>
+                            <button onclick="filterPortfolio('wedding')" class="portfolio-filter-btn bg-white text-forest border border-gold/30 px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-forest hover:text-ivory transition-all" data-filter="wedding">Weddings & Engagements</button>
+                            <button onclick="filterPortfolio('birthday')" class="portfolio-filter-btn bg-white text-forest border border-gold/30 px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-forest hover:text-ivory transition-all" data-filter="birthday">Birthdays</button>
+                            <button onclick="filterPortfolio('naming')" class="portfolio-filter-btn bg-white text-forest border border-gold/30 px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-forest hover:text-ivory transition-all" data-filter="naming">Naming Ceremonies</button>
+                            <button onclick="filterPortfolio('anniversary')" class="portfolio-filter-btn bg-white text-forest border border-gold/30 px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-forest hover:text-ivory transition-all" data-filter="anniversary">Anniversaries</button>
+                        </div>
+                    </section>
+
+                    <!-- 4. Featured Large Project & 5, 6, 7, 8. Gallery Grid -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                ${PORTFOLIO_ITEMS.map(item => `
+                                    <div onclick="openLightbox(${item.id})" class="portfolio-item group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg border border-gold/20 hover:border-gold transition-all" data-category="${item.category}">
+                                        <div class="relative h-72 overflow-hidden">
+                                            <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                            <span class="absolute top-4 left-4 bg-charcoal/80 text-gold text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-semibold border border-gold/30">Design Inspiration</span>
+                                        </div>
+                                        <div class="p-6 space-y-2">
+                                            <span class="text-[10px] uppercase tracking-widest text-gold font-semibold">${item.category}</span>
+                                            <h3 class="font-serif text-xl font-bold text-forest">${item.title}</h3>
+                                            <p class="text-xs text-charcoal/70 line-clamp-2">${item.desc}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 9. Lightbox Feature Banner & 10. Footer -->
+                    <section class="py-20 bg-charcoal text-ivory text-center px-4">
+                        <div class="max-w-3xl mx-auto space-y-6">
+                            <h3 class="font-serif text-3xl font-bold">Love A Particular Style?</h3>
+                            <p class="text-ivory/80 text-sm font-light">Contact our team in Yapral, Hyderabad to customize this exact design for your upcoming celebration.</p>
+                            <button onclick="router.navigate('contact')" class="bg-gold text-charcoal px-8 py-4 rounded-full font-semibold text-xs uppercase tracking-widest hover:bg-goldLight transition-all">
+                                Enquire About Your Theme
+                            </button>
+                        </div>
+                    </section>
+                    ${renderFooterAndBanner()}
+                </div>
+            `;
+        }
+
+        // Filter Portfolio Helper
+        function filterPortfolio(category) {
+            document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+                if(btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('bg-forest', 'text-ivory');
+                    btn.classList.remove('bg-white', 'text-forest');
+                } else {
+                    btn.classList.remove('bg-forest', 'text-ivory');
+                    btn.classList.add('bg-white', 'text-forest');
+                }
+            });
+            document.querySelectorAll('.portfolio-item').forEach(item => {
+                if(category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // ================= PAGE 9: REVIEWS AND FREQUENTLY ASKED QUESTIONS (8 SECTIONS) =================
+        function renderReviewsPage() {
+            return `
+                <div class="fade-in">
+                    <!-- 1. Page Hero -->
+                    <section class="relative py-28 bg-charcoal text-ivory text-center px-4 overflow-hidden">
+                        <div class="absolute inset-0 opacity-40">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=2000&q=80" alt="Reviews Hero" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent z-10"></div>
+                        <div class="relative z-20 max-w-4xl mx-auto space-y-6">
+                            <span class="bg-gold/20 text-gold border border-gold/40 px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
+                                Verified Client Satisfaction
+                            </span>
+                            <h1 class="font-serif text-4xl sm:text-6xl font-bold">Reviews & Frequently Asked Questions</h1>
+                            <p class="text-ivory/80 text-lg max-w-2xl mx-auto font-light">Read verified feedback from our clients and find answers to common event planning queries.</p>
+                        </div>
+                    </section>
+
+                    <!-- 2. Verified Rating Summary -->
+                    <section class="py-16 bg-forest text-ivory">
+                        <div class="max-w-7xl mx-auto px-4 text-center space-y-6">
+                            <div class="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest border border-gold/30">
+                                <i class="fa-solid fa-star"></i> Google Verified Statistics
+                            </div>
+                            <div class="font-serif text-5xl sm:text-6xl font-bold text-gold">${BUSINESS.googleRating} ★★★★★</div>
+                            <p class="text-sm uppercase tracking-widest text-ivory/80">Based on ${BUSINESS.reviewCount} Verified Client Reviews on Google</p>
+                        </div>
+                    </section>
+
+                    <!-- 3 & 4. Available Customer Feedback & Detailed Review Layout -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto space-y-16">
+                            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">Client Words</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">What Families Say About OCCASION</h2>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-6">
+                                    <div class="text-gold text-lg">★★★★★</div>
+                                    <p class="text-xs text-charcoal/80 leading-relaxed italic">"OCCASION transformed our daughter's 1st birthday into a fairytale wonderland in Yapral. The balloon styling was breathtaking!"</p>
+                                    <div>
+                                        <h4 class="font-serif font-bold text-forest">Srilatha Reddy</h4>
+                                        <span class="text-[10px] text-charcoal/70 uppercase tracking-widest">Birthday Client, Hyderabad</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-6">
+                                    <div class="text-gold text-lg">★★★★★</div>
+                                    <p class="text-xs text-charcoal/80 leading-relaxed italic">"Absolute professionals! The traditional cradle naming ceremony decor was immaculate. Fresh flowers and pristine styling."</p>
+                                    <div>
+                                        <h4 class="font-serif font-bold text-forest">Rajesh Varma</h4>
+                                        <span class="text-[10px] text-charcoal/70 uppercase tracking-widest">Naming Ceremony Client</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gold/20 space-y-6">
+                                    <div class="text-gold text-lg">★★★★★</div>
+                                    <p class="text-xs text-charcoal/80 leading-relaxed italic">"5.0 rating is truly well deserved. From consultation to wedding reception execution, everything was seamless."</p>
+                                    <div>
+                                        <h4 class="font-serif font-bold text-forest">Priya & Vikram</h4>
+                                        <span class="text-[10px] text-charcoal/70 uppercase tracking-widest">Wedding Reception Client</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 5. Customer Experience Highlights -->
+                    <section class="py-20 bg-forest/5 border-y border-gold/20 px-4">
+                        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                            <div class="p-6 space-y-2">
+                                <h3 class="font-serif text-3xl font-bold text-forest">100%</h3>
+                                <p class="text-xs uppercase tracking-wider text-charcoal/70">On-Time Completion</p>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <h3 class="font-serif text-3xl font-bold text-forest">54+</h3>
+                                <p class="text-xs uppercase tracking-wider text-charcoal/70">Verified 5-Star Reviews</p>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <h3 class="font-serif text-3xl font-bold text-forest">Yapral, Hyd</h3>
+                                <p class="text-xs uppercase tracking-wider text-charcoal/70">Studio & Head Office</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 6. FAQs -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-4xl mx-auto space-y-12">
+                            <div class="text-center space-y-4">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gold">FAQ</span>
+                                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest">Frequently Asked Questions</h2>
+                            </div>
+                            <div class="space-y-4">
+                                ${FAQS.map((faq, idx) => `
+                                    <div class="bg-white rounded-2xl border border-gold/20 overflow-hidden shadow-sm">
+                                        <button onclick="toggleFaq('r-'+${idx})" class="w-full px-6 py-5 text-left flex items-center justify-between font-serif text-lg font-bold text-forest focus:outline-none">
+                                            <span>${faq.q}</span>
+                                            <i class="fa-solid fa-chevron-down text-gold transition-transform duration-300" id="faq-icon-r-${idx}"></i>
+                                        </button>
+                                        <div id="faq-body-r-${idx}" class="hidden px-6 pb-6 text-xs text-charcoal/80 leading-relaxed border-t border-gold/10 pt-4">
+                                            ${faq.a}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 7 & 8. Contact CTA & Footer -->
+                    ${renderFooterAndBanner()}
+                </div>
+            `;
+        }
+
+        // ================= PAGE 10: CONTACT AND EVENT ENQUIRY (9 SECTIONS) =================
+        function renderContactPage() {
+            return `
+                <div class="fade-in">
+                    <!-- 1. Full-Width Contact Hero -->
+                    <section class="relative py-28 bg-charcoal text-ivory text-center px-4 overflow-hidden">
+                        <div class="absolute inset-0 opacity-40">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=2000&q=80" alt="Contact Hero" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent z-10"></div>
+                        <div class="relative z-20 max-w-4xl mx-auto space-y-6">
+                            <span class="bg-gold/20 text-gold border border-gold/40 px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
+                                Get In Touch
+                            </span>
+                            <h1 class="font-serif text-4xl sm:text-6xl font-bold">Contact & Event Enquiry</h1>
+                            <p class="text-ivory/80 text-lg max-w-2xl mx-auto font-light">Ready to style your next celebration? Connect with our team in Yapral, Hyderabad.</p>
+                        </div>
+                    </section>
+
+                    <!-- 2. Contact Introduction & 3, 4. Details, Address, Phone -->
+                    <section class="py-24 px-4 bg-ivory">
+                        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+                            <!-- Contact Information Column -->
+                            <div class="space-y-8">
+                                <div class="space-y-4">
+                                    <span class="text-xs font-semibold uppercase tracking-widest text-gold">Direct Contact</span>
+                                    <h2 class="font-serif text-3xl font-bold text-forest">Let's Discuss Your Event</h2>
+                                    <p class="text-charcoal/80 text-sm font-light leading-relaxed">
+                                        We invite you to reach out via phone, WhatsApp, or visit our studio in Yapral. Our design consultants are ready to assist you.
+                                    </p>
+                                </div>
+                                <div class="space-y-6">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-forest text-gold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-phone"></i></div>
+                                        <div>
+                                            <h3 class="font-serif font-bold text-forest">Phone & WhatsApp</h3>
+                                            <a href="tel:919063000750" class="text-xs text-charcoal/80 hover:text-gold transition-colors font-medium">+91 90630 00750</a>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-forest text-gold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-location-dot"></i></div>
+                                        <div>
+                                            <h3 class="font-serif font-bold text-forest">Business Address</h3>
+                                            <p class="text-xs text-charcoal/80 leading-relaxed">${BUSINESS.address}</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-forest text-gold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-star"></i></div>
+                                        <div>
+                                            <h3 class="font-serif font-bold text-forest">Google Rating</h3>
+                                            <p class="text-xs text-charcoal/80">${BUSINESS.googleRating} ★★★xx (54 Verified Reviews)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-4">
+                                    <a href="https://wa.me/919063000750?text=Hello%20OCCASION%20Team,%20I%20would%20like%20to%20enquire%20about%20event%20decoration." target="_blank" class="bg-forest text-ivory hover:bg-forestDark px-8 py-4 rounded-full font-semibold text-xs uppercase tracking-widest shadow-lg inline-flex items-center gap-2">
+                                        <i class="fa-brands fa-whatsapp text-gold text-lg"></i> Instant WhatsApp Chat
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- 5 & 6. Event Enquiry Form (Validated + WhatsApp Generator) -->
+                            <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-gold/20 space-y-6">
+                                <div class="space-y-2">
+                                    <h3 class="font-serif text-2xl font-bold text-forest">Event Enquiry Form</h3>
+                                    <p class="text-xs text-charcoal/70">Fill out the details below to generate a direct WhatsApp enquiry.</p>
+                                </div>
+                                <form id="enquiry-form" onsubmit="handleEnquirySubmit(event)" class="space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Your Name *</label>
+                                        <input type="text" id="eq-name" required class="w-full px-4 py-3 rounded-xl border border-gold/30 text-xs focus:outline-none focus:border-gold bg-ivory/50" placeholder="Enter your full name">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Phone / WhatsApp Number *</label>
+                                        <input type="tel" id="eq-phone" required class="w-full px-4 py-3 rounded-xl border border-gold/30 text-xs focus:outline-none focus:border-gold bg-ivory/50" placeholder="+91 XXXXX XXXXX">
+                                    </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Event Type *</label>
+                                            <select id="eq-type" class="w-full px-4 py-3 rounded-xl border border-gold/30 text-xs focus:outline-none focus:border-gold bg-ivory/50">
+                                                <option value="Birthday">Birthday Decoration</option>
+                                                <option value="Naming Ceremony">Naming Ceremony</option>
+                                                <option value="Wedding & Engagement">Wedding & Engagement</option>
+                                                <option value="Anniversary">Anniversary Celebration</option>
+                                                <option value="Other Custom Event">Other Custom Event</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Event Date *</label>
+                                            <input type="date" id="eq-date" required class="w-full px-4 py-3 rounded-xl border border-gold/30 text-xs focus:outline-none focus:border-gold bg-ivory/50">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Event Location / Venue in Hyderabad *</label>
+                                        <input type="text" id="eq-location" required class="w-full px-4 py-3 rounded-xl border border-gold/30 text-xs focus:outline-none focus:border-gold bg-ivory/50" placeholder="e.g. Yapral, Secunderabad / Banquet Hall">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Estimated Budget (Optional)</label>
+                                        <input type="text" id="eq-budget" class="w-full px-4 py-3 rounded-xl border border-gold/30 text-xs focus:outline-none focus:border-gold bg-ivory/50" placeholder="e.g. ₹20,000 - ₹50,000">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Additional Details</label>
+                                        <textarea id="eq-notes" rows="3" class="w-full px-4 py-3 rounded-xl border border-gold/30 text-xs focus:outline-none focus:border-gold bg-ivory/50" placeholder="Tell us about your theme or floral preferences..."></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full bg-forest text-ivory hover:bg-forestDark py-4 rounded-xl font-semibold text-xs uppercase tracking-widest shadow-lg transition-all flex items-center justify-center gap-2">
+                                        <i class="fa-brands fa-whatsapp text-gold text-base"></i> Send Enquiry via WhatsApp
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 7. Directions Section using Verified Location -->
+                    <section class="py-20 bg-forest/5 border-y border-gold/20 px-4">
+                        <div class="max-w-7xl mx-auto text-center space-y-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold">Location Guide</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Visit Our Studio in Yapral</h2>
+                            <p class="text-charcoal/80 text-sm font-light max-w-2xl mx-auto">
+                                Located at Panchasheel Enclave, Plot No. 6, Indus School Road, beside Valley Wave Play School, Bank Colony, Yapral, Secunderabad, Hyderabad. Easily accessible from all parts of Secunderabad and Hyderabad.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- 8. FAQs & 9. Final CTA & Complete Footer -->
+                    ${renderFooterAndBanner()}
+                </div>
+            `;
+        }
+
+        // ================= SHARED FOOTER & FINAL BANNER =================
+        function renderFooterAndBanner() {
+            return `
+                <!-- Final Enquiry Banner -->
+                <section class="py-24 bg-forest text-ivory text-center px-4">
+                    <div class="max-w-4xl mx-auto space-y-8">
+                        <span class="text-xs font-semibold uppercase tracking-widest text-gold">Ready to Celebrate?</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold">Let's Create Something Extraordinary Together</h2>
+                        <p class="text-ivory/80 max-w-xl mx-auto font-light text-sm">Contact OCCASION today for bespoke event planning and luxury decoration services in Hyderabad.</p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <a href="https://wa.me/919063000750" target="_blank" class="w-full sm:w-auto bg-gold text-charcoal px-8 py-4 rounded-full font-semibold text-xs uppercase tracking-widest hover:bg-goldLight transition-all">
+                                <i class="fa-brands fa-whatsapp text-base mr-1"></i> WhatsApp +91 90630 00750
+                            </a>
+                            <button onclick="router.navigate('contact')" class="w-full sm:w-auto bg-transparent border border-gold text-ivory px-8 py-4 rounded-full font-semibold text-xs uppercase tracking-widest hover:bg-gold/10 transition-all">
+                                Enquire Now
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Detailed Multi-Column Footer -->
+                <footer class="bg-charcoal text-ivory py-16 px-4 border-t border-gold/20">
+                    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                        <!-- Column 1: Brand Info -->
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-forest flex items-center justify-center text-gold border border-gold/40">
+                                    <i class="fa-solid fa-crown text-xs"></i>
+                                </div>
+                                <span class="font-serif text-xl font-bold text-ivory">OCCASION</span>
+                            </div>
+                            <p class="text-xs text-ivory/70 leading-relaxed font-light">
+                                Luxury Event Planner & Decorators based in Yapral, Secunderabad, Hyderabad. Crafting bespoke aesthetics for weddings, birthdays, and naming ceremonies.
+                            </p>
+                            <div class="text-gold text-xs font-semibold">
+                                ★★★★★ 5.0 Rating (54 Verified Reviews)
+                            </div>
+                        </div>
+
+                        <!-- Column 2: Quick Links -->
+                        <div class="space-y-4">
+                            <h4 class="font-serif text-lg font-bold text-gold">Quick Links</h4>
+                            <ul class="space-y-2 text-xs text-ivory/80 font-light">
+                                <li><button onclick="router.navigate('home')" class="hover:text-gold transition-colors">Home</button></li>
+                                <li><button onclick="router.navigate('about')" class="hover:text-gold transition-colors">About Us</button></li>
+                                <li><button onclick="router.navigate('services')" class="hover:text-gold transition-colors">All Services</button></li>
+                                <li><button onclick="router.navigate('portfolio')" class="hover:text-gold transition-colors">Portfolio & Gallery</button></li>
+                                <li><button onclick="router.navigate('reviews')" class="hover:text-gold transition-colors">Reviews & FAQs</button></li>
+                                <li><button onclick="router.navigate('contact')" class="hover:text-gold transition-colors">Contact & Enquiry</button></li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 3: Decor Categories -->
+                        <div class="space-y-4">
+                            <h4 class="font-serif text-lg font-bold text-gold">Decor Categories</h4>
+                            <ul class="space-y-2 text-xs text-ivory/80 font-light">
+                                <li><button onclick="router.navigate('birthday')" class="hover:text-gold transition-colors">Birthday Decoration</button></li>
+                                <li><button onclick="router.navigate('naming')" class="hover:text-gold transition-colors">Naming Ceremony Decoration</button></li>
+                                <li><button onclick="router.navigate('wedding')" class="hover:text-gold transition-colors">Wedding & Engagement</button></li>
+                                <li><button onclick="router.navigate('anniversary')" class="hover:text-gold transition-colors">Anniversary Celebration</button></li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 4: Contact & Address -->
+                        <div class="space-y-4">
+                            <h4 class="font-serif text-lg font-bold text-gold">Studio Location</h4>
+                            <p class="text-xs text-ivory/80 leading-relaxed font-light">
+                                Panchasheel Enclave, Plot No. 6, Indus School Road, beside Valley Wave Play School, Bank Colony, Yapral, Secunderabad, Hyderabad, Telangana 500087, India
+                            </p>
+                            <p class="text-xs text-ivory/80 font-light">
+                                <strong class="text-gold">Phone / WhatsApp:</strong> <br>+91 90630 00750
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto pt-8 border-t border-gold/10 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/60">
+                        <p>© 2026 OCCASION – Event Planner & Decorators. All rights reserved.</p>
+                        <p class="mt-2 sm:mt-0">Yapral, Secunderabad, Hyderabad, Telangana.</p>
+                    </div>
+                </footer>
+            `;
+        }
+
+        // ================= INTERACTIVE UTILITIES =================
+        function toggleFaq(id) {
+            const body = document.getElementById(`faq-body-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            if(body && icon) {
+                body.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            }
+        }
+
+        function openLightbox(id) {
+            const item = PORTFOLIO_ITEMS.find(p => p.id === id) || PORTFOLIO_ITEMS[0];
+            document.getElementById('lightbox-img').src = item.img;
+            document.getElementById('lightbox-category').innerText = item.category + " decoration concept";
+            document.getElementById('lightbox-title').innerText = item.title;
+            document.getElementById('lightbox-desc').innerText = item.desc;
+            document.getElementById('lightbox-whatsapp').href = `https://wa.me/919063000750?text=Hello%20OCCASION,%20I%20am%20interested%20in%20the%20design%20inspiration:%20${encodeURIComponent(item.title)}`;
+            
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        function handleEnquirySubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('eq-name').value;
+            const phone = document.getElementById('eq-phone').value;
+            const type = document.getElementById('eq-type').value;
+            const date = document.getElementById('eq-date').value;
+            const location = document.getElementById('eq-location').value;
+            const budget = document.getElementById('eq-budget').value || 'Not specified';
+            const notes = document.getElementById('eq-notes').value || 'None';
+
+            const text = `Hello OCCASION Team,%0A%0AI would like to enquire about event decoration:%0A- Name: ${encodeURIComponent(name)}%0A- Phone: ${encodeURIComponent(phone)}%0A- Event Type: ${encodeURIComponent(type)}%0A- Date: ${encodeURIComponent(date)}%0A- Location: ${encodeURIComponent(location)}%0A- Budget: ${encodeURIComponent(budget)}%0A- Notes: ${encodeURIComponent(notes)}`;
+            
+            window.open(`https://wa.me/919063000750?text=${text}`, '_blank');
+        }
+
+        function attachDynamicListeners() {
+            // Any specific post-render bindings if required
+        }
+
+        // Initialize application on load
+        window.onload = function() {
+            router.navigate('home');
+        };
+    </script>
+</body>
+</html>
